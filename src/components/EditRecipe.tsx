@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CURRENT_PAGE } from '../constants';
-import { MdModeEdit, MdRemoveCircleOutline, MdReorder } from 'react-icons/md'
+import RecipeSteps from './RecipeSteps';
 
 function EditRecipe(props: any) {
 
@@ -13,6 +13,17 @@ function EditRecipe(props: any) {
             { id: 1, title: 'Step 1 of 1', description: 'Step Description...' }
         ]
     }
+
+    const recipeSteps = [
+        {
+            id: 1,
+            title: 'Chop Meat'
+        },
+        {
+            id: 2,
+            title: 'Prepare Meat'
+        }
+    ]
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -49,21 +60,9 @@ function EditRecipe(props: any) {
                 <button className={`generic-button`} type="submit">Submit</button>
             </form>
 
-            <ul className={`generic-sortable-list`}>
-                <li className={`generic-sortable-list-item`}>
-                    <MdReorder className={`icon`} />
-                    <div className={`title`}>Prepare Meat</div>
-                    <div className={`title`}>Prepare Meat</div>
-                    <div className={`options`}>
-                        <MdModeEdit className={`option-item color color-pencil`} />
-                        <MdRemoveCircleOutline className={`option-item color color-trash`} />
-                    </div>
-                </li>
-                <li className={`generic-sortable-list-item`}>Preheat Something</li>
-                <li className={`generic-sortable-list-item`}>Chop Ingredients</li>
-                <li className={`generic-sortable-list-item`}>Add These Steps</li>
-                <li className={`generic-sortable-list-item`}>Cook Meat</li>
-            </ul>
+            <br/>
+
+            <RecipeSteps items={recipeSteps} />
 
 
             <div className={`editor-footer`}>

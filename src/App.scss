@@ -87,7 +87,10 @@ header {
         grid-area: 1 / 1;
 
         img {
-          width: 24px;
+          background: #ffffff;
+          padding: 5px;
+          width: 35px;
+          border-radius: 17px;
         }
 
       }
@@ -958,3 +961,5 @@ header {
 }
 
 // shadows: https://codepen.io/sdthornton/pen/wBZdXq
+// nice UI: https://dribbble.com/shots/8502333-Declarange-Admin-Dashboard
+// nice Card Designs: https://freefrontend.com/css-cards/
