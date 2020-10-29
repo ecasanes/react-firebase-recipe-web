@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { Recipe } from '../classes';
 import { CURRENT_PAGE } from '../constants';
 
 function RecipeListItem(props: any) {
 
     const { item:recipe, setCurrentPage } = props;
+
+    let match = useRouteMatch();
 
     const [highlightedTask, setHighlightedTask] = useState(new Recipe());
 
@@ -49,9 +52,9 @@ function RecipeListItem(props: any) {
                         </div>
                     </div>
                     <div className={`list-item-options-container`}>
-                        <FaPencilAlt onClick={() => {
-                            goToEditPage(recipe.id)
-                        }} className={`option-item ${(highlightedTask && highlightedTask.id === recipe.id) ? `color` : ``} color-pencil`} />
+                        <Link to={`/edit-recipe/${recipe.id}`}>
+                            <FaPencilAlt className={`option-item ${(highlightedTask && highlightedTask.id === recipe.id) ? `color` : ``} color-pencil`} />
+                        </Link>
                         <FaTrash onClick={() => {
                             onDeleteRecipe(recipe.id)
                         }} className={`option-item ${(highlightedTask && highlightedTask.id === recipe.id) ? `color` : ``} color-trash`} />

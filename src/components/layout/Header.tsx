@@ -16,23 +16,23 @@ const Header = (props: { darkMode: any; setDarkMode: any; }) => {
         <div className="settings">
           <ul>
             <li className="settings__add">
-              <button
+              {/* <button
                 data-testid="quick-add-task-action"
                 aria-label="Quick add task"
                 type="button"
               >
                 +
-              </button>
+              </button> */}
             </li>
             <li className="settings__darkmode">
-              <button
+              {/* <button
                 data-testid="dark-mode-action"
                 aria-label="Darkmode on/off"
                 type="button"
                 onClick={() => setDarkMode(!darkMode)}
               >
                 <FaPizzaSlice />
-              </button>
+              </button> */}
             </li>
           </ul>
         </div>

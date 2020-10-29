@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { CURRENT_PAGE } from '../constants';
 import RecipeSteps from './RecipeSteps';
 
 function EditRecipe(props: any) {
 
     const { setCurrentPage } = props;
+
+    let { recipeId }:{recipeId:any} = useParams();
+
+    console.log(recipeId);
 
     const recipeItem = {
         name: 'Banana Cake',
@@ -22,6 +27,10 @@ function EditRecipe(props: any) {
         {
             id: 2,
             title: 'Prepare Meat'
+        },
+        {
+            id: 3,
+            title: 'Another One'
         }
     ]
 

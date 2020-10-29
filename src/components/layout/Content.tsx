@@ -1,22 +1,25 @@
-import React, {useState} from 'react'
+import React from 'react'
 import RecipeList from '../RecipeList'
-import { CURRENT_PAGE } from '../../constants';
 import EditRecipe from '../EditRecipe';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
 function Content() {
 
-    const [currentPage, setCurrentPage] = useState(CURRENT_PAGE.RECIPE_LIST);
+    let match = useRouteMatch();
 
     return (
-        <section className="content">
-            {currentPage && 
-                currentPage === CURRENT_PAGE.RECIPE_LIST && 
-                (<RecipeList setCurrentPage={setCurrentPage} />)
-            }
-            {currentPage && 
-                currentPage === CURRENT_PAGE.EDIT_RECIPE &&
-                (<EditRecipe setCurrentPage={setCurrentPage} />)}
-        </section>
+        <div className="content">
+            <Switch>
+                <Route path={`/edit-recipe/:recipeId`}>
+                    <EditRecipe />
+                </Route>
+                <Route path={match.path}>
+                    <RecipeList />
+                </Route>
+            </Switch>
+        </div>
+
+
     )
 }
 
