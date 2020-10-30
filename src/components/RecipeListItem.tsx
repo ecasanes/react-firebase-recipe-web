@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Recipe } from '../classes';
-import { CURRENT_PAGE } from '../constants';
 
 function RecipeListItem(props: any) {
 
-    const { item:recipe, setCurrentPage } = props;
-
-    let match = useRouteMatch();
+    const { item:recipe } = props;
 
     const [highlightedTask, setHighlightedTask] = useState(new Recipe());
 
@@ -18,10 +15,6 @@ function RecipeListItem(props: any) {
     
     function unsetColor(task: any) {
         setHighlightedTask(new Recipe());
-    }
-    
-    function goToEditPage(taskId: any) {
-        setCurrentPage(CURRENT_PAGE.EDIT_RECIPE);
     }
     
     function onDeleteRecipe(taskId: any) {
@@ -41,7 +34,7 @@ function RecipeListItem(props: any) {
                     <span className={`checkbox`}></span>
                 </div> */}
                     <div className={`title-container`}>
-                        <div className={`title`}>{recipe.task}</div>
+                        <div className={`title`}>{recipe.name}</div>
                         <div className={`tags-container`}>
                             <ul>
                                 {recipe.tags.length === 0 ? (<li className={`bg-color bg-color-grey`}>No Tags</li>) : ''}

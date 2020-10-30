@@ -1,11 +1,10 @@
 import React from 'react';
-import { FaPizzaSlice } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 // import { AddTask } from '../AddTask';
 
 const Header = (props: { darkMode: any; setDarkMode: any; }) => {
 
-    const {darkMode, setDarkMode} = props;
+    //const {darkMode, setDarkMode} = props;
 
   return (
     <header className="header" data-testid="header">
